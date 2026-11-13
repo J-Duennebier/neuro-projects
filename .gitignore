@@ -1,0 +1,16 @@
+# Werkstatt — bleibt auf dem Rechner, kommt nie ins Repo
+CLAUDE.md
+STAND.md
+.claude/
+.vscode/
+
+# Daten und Umgebung
+.venv/
+data/
+__pycache__/
+.ipynb_checkpoints/
+*.npz
+*.edf
+*.fif
+*.set
+*.fdt
