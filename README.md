@@ -6,6 +6,7 @@ notebook, figures and a README.
 | # | Project | Question | Status |
 |---|---|---|---|
 | 01 | [From RC circuit to spike](01-neuron-models/) | How does a neuron turn an input current into spikes? LIF and Hodgkin-Huxley models, f-I curves | done |
+| 02 | [How real neurons fire](02-mouse-neuropixels/) | How differently do real neurons fire from the LIF ideal? Neuropixels recordings from mice, PSTH, Fano factor | in progress |
 
 More projects will follow in this repository.
 
