@@ -64,8 +64,9 @@ continuously from 0 Hz. Simulation and analytical rate agree.
 ### Hodgkin-Huxley neuron
 ![HH voltage trace and gates at 10 µA/cm²](figures/hh_trace_10uA.png)
 
-At 10 µA/cm² the spikes peak at +40 mV, below the sodium reversal potential of
-+50 mV, and are followed by an undershoot to −75 mV. The gates show the
+At 10 µA/cm² the first spike peaks at +40 mV and the following ones at about
++31 mV, below the sodium reversal potential of +50 mV; each is followed by an
+undershoot to about −75 mV. The gates show the
 mechanism: m opens sodium quickly; h closes it and n opens potassium with a delay.
 
 Time step check (firing rate in Hz):
@@ -115,8 +116,8 @@ reproduce this only in part:
   between 0.75 and 1 µA/cm² instead of at 2.7 µA/cm², and the rate at
   10 µA/cm² is 74 Hz instead of more than 200 Hz.
 
-Halving dt does not change the n¹ rates. The remaining difference must come from
-details of the book's simulation that are not given in the text.
+Halving dt does not change the n¹ rates. The remaining difference probably comes
+from details of the book's simulation that are not given in the text.
 
 ## What I learned
 - My biggest moment was when I understood the Hodgkin-Huxley equations and
@@ -126,8 +127,7 @@ details of the book's simulation that are not given in the text.
   introduced to the concept. So I assumed it was a concrete, fixed voltage.
   Through HH I learned that it is not: it comes from a complex interplay of the
   gates and the neuron's own rhythm. Real neurons, too, have no single fixed
-  threshold, and as I found out, they can even spike before that threshold is
-  reached.
+  threshold: it is not one concrete number but depends on the input.
 - I found the Table 2.1 check very confusing, and it surprised me. I know that
   in real research, too, strange open questions sometimes come up that do not
   get resolved.
@@ -149,21 +149,13 @@ details of the book's simulation that are not given in the text.
   2.7 µA/cm².
 
 ## How this was built
-I built this project with Claude Code (Anthropic's AI coding assistant) as a
-pair programmer and tutor. The textbook *Neuronal Dynamics* was my source of
-knowledge: Claude explained the theory from it section by section, citing the
-sections and equations, and asked me check questions along the way. Claude
-also drafted most of the code. My part: I wrote key lines myself (the LIF Euler
-step and the HH potassium current), predicted results before running cells,
-checked the simulations against the analytical solution and the textbook, and
-interpreted the results. The "What I learned" section is in my own words.
-Before writing this README, Claude quizzed me in two mock-interview rounds and
-cleared up the points I had not understood. Claude and I stumbled on the
-mismatch with Table 2.1 together while building the HH model. For the appendix,
-Claude ran most of the tests and compared the table with the original channel
-code; I asked whether our own code could be the cause, worked out with Claude
-why the voltage gets stuck in the figure, and decided to stop after a time box
-and report the result as a partial reproduction.
+The code was drafted mostly by Claude Code (see the
+[top-level README](../README.md)). My part: the LIF Euler step and the HH
+potassium current, predictions before running cells, the checks against the
+analytical solution and the textbook, and the interpretation. For the Table 2.1
+appendix, which Claude ran for the most part, I asked whether our own code could
+be the cause and decided to stop after a time box and report a partial
+reproduction.
 
 ## References
 - Gerstner, W., Kistler, W. M., Naud, R., & Paninski, L. (2014). *Neuronal

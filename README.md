@@ -1,7 +1,8 @@
 # Neuro projects
 
 Small computational neuroscience projects, each in its own folder with a
-notebook, figures and a README.
+notebook, figures and a README. Together they go from a model neuron (01) to
+real neurons in a mouse (02) to the EEG of meditating people (03).
 
 | # | Project | Question | Status |
 |---|---|---|---|
@@ -21,6 +22,9 @@ Then open a project's notebook in Jupyter or VS Code and run all cells. Figures
 are written to the project's `figures/` folder.
 
 ## How this was built
-The projects were built with Claude Code (Anthropic's AI coding assistant) as
-pair programmer and tutor. Each project README has a section "How this was
-built" that says what was mine and what was Claude's.
+I built all three projects with Claude Code (Anthropic's AI coding assistant)
+as pair programmer. Claude drafted most of the code. I chose the topics, wrote
+key parts myself, checked the results against theory, the textbook or the
+original paper, and decided how to read them; the "What I learned" sections are
+in my own words. Each project ended with a mock interview on its figures and
+methods. Each project README says in a few sentences what was mine.

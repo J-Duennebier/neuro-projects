@@ -10,7 +10,7 @@ how often, and how regularly?
 Driven by a constant current, the leaky integrate-and-fire (LIF) neuron of
 [project 01](../01-neuron-models/) fires like clockwork: at 2.1 nA (33 Hz) its
 spike count in a 0.5-s window changes by at most one spike, and its Fano factor
-is 0.02. A neuron in the mouse's primary visual cortex with almost the same rate
+is 0.015. A neuron in the mouse's primary visual cortex with almost the same rate
 (32 Hz) has F = 2.67. Over all 304 neurons that fire at least 2 Hz, the median
 is 1.87, and 88 % lie above 1, the value for a Poisson process. Real neurons are
 not only far from clockwork; their counts vary even more than random spiking at
@@ -133,7 +133,9 @@ expectation during the session. Then the bump should grow over the session. It
 does not: +1.3 Hz in the first half of the trials without a picture, +1.0 Hz in
 the second half. It is larger in the 12 trials in which the mouse turns the
 wheel anyway (+2.1 Hz) than in the 34 in which it holds still (+0.8 Hz). The
-cause stays open.
+mice were trained on the task before the recordings, so an expectation could be
+there from the start; this check only rules out learning within the session.
+The cause stays open.
 
 ## What I learned
 - What surprised me most is how irregular real neurons are. I did not know
@@ -188,20 +190,12 @@ cause stays open.
   - Repeat everything on the other 12 sessions in the same data file.
 
 ## How this was built
-I built this project with Claude Code (Anthropic's AI coding assistant) as a
-pair programmer and tutor. The textbook *Neuronal Dynamics* was my source of
-knowledge: Claude explained the PSTH and the Fano factor from it, citing the
-sections and equations, and asked me check questions along the way. Claude also
-drafted most of the code. My part: I wrote the PSTH line myself and found an
-error in it with a units check, interpreted which brain areas respond, noticed
-that the response fades over the session while the mouse turns the wheel less
-often, and proposed the expectation hypothesis for the gray bump. Claude coded
-the checks for both observations and added the timing check for the motor
-cortex. The "What I learned" section is in my own words. Before writing this
-README, Claude quizzed me in a mock interview and cleared up the points I had
-not understood, such as why the Fano factor can be above 1. While writing it, we
-moved the two quick checks into the notebook so that every number here can be
-reproduced.
+The code was drafted mostly by Claude Code (see the
+[top-level README](../README.md)). My part: the PSTH line, where a units check
+caught an error (2500 Hz instead of 35 Hz); which brain areas respond; the
+observation that the response fades while the mouse turns the wheel less often;
+and the expectation hypothesis for the bump without a picture. Claude coded the
+checks for both observations and the timing check for the motor cortex.
 
 ## References
 - Gerstner, W., Kistler, W. M., Naud, R., & Paninski, L. (2014). *Neuronal

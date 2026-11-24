@@ -12,10 +12,11 @@ meditation, minus their band power before reporting mind wandering (dB). Before
 meditation reports, 9 of 12 experts had more theta power over the mid-frontal
 region (mean +0.39 dB, about 9 % more; p = 0.04), and 8 of 12 had more alpha
 power over the right central region (+0.59 dB; p = 0.09), but the spread
-between people is large, especially for alpha. This is the direction, location
-and size of the published finding (Brandmeyer & Delorme, 2018), but not its
-strength (p < 0.02): without our artifact rule, the theta result drops to
-p = 0.10. For the non-experts, theta shows nothing (7 of 10 above zero,
+between people is large, especially for alpha. This matches the published
+finding (Brandmeyer & Delorme, 2018) in direction and rough size (read off the
+paper's colour scale), and the alpha difference is largest over the right
+central region, as in the paper. It does not match its strength (p < 0.02):
+without our artifact rule, the theta result drops to p = 0.10. For the non-experts, theta shows nothing (7 of 10 above zero,
 p = 0.19), and alpha is mostly negative: 8 of 10 had more alpha before mind
 wandering (−0.47 dB, p = 0.06).
 
@@ -146,9 +147,11 @@ Two numbers per window (theta mid-frontal, alpha right central, each relative
 to the person's own mean and spread), a logistic regression, and every person
 predicted by a model trained on the others. For the experts, the balanced
 accuracy is 53 % (chance 50 %, p = 0.26 against 200 shuffles of the answers):
-the meditation and mind-wandering windows overlap almost completely (left). The
-difference of about 0.5 dB is small next to the spread of single windows
-(1–2 dB); even a perfect classifier could reach only about 56 %. For the
+the meditation and mind-wandering windows overlap almost completely (left).
+Within one expert, single windows scatter by about 1.0 dB (theta) and 1.7 dB
+(alpha), large next to a difference of about 0.5 dB: the centres of the two
+clouds lie only 0.29 spreads apart, so under a simple Gaussian assumption even a
+perfect classifier could reach only about 56 %. For the
 non-experts, it reaches 59 % (p = 0.01): weak, but above chance, in line with
 their alpha difference. Their mind-wandering windows also contained more
 artifacts, so part of this may come from movement.
@@ -245,19 +248,13 @@ times, where tiredness also rises.
     localization: probably my next project.
 
 ## How this was built
-I built this project with Claude Code (Anthropic's AI coding assistant) as a
-pair programmer and tutor. The paper by Brandmeyer & Delorme was my starting
-point: Claude explained the EEG, the power spectrum and the statistics step by
-step, looked up the meditation technique and the exact questions in the paper's
-methods, and asked me check questions along the way. Claude also drafted most
-of the code, including reading the answers from the log files, the cleaning,
-the statistics and the classifier. My part: I wrote key lines myself (the rule
-that turns the two answers into a state, and the per-person z-score in the
-classifier), criticised the design (the constant questions, the self-defined
-depth of meditation), and proposed the two checks on tiredness and on the time
-in the session. Claude coded both checks, and we added them to the notebook so
-that every number here can be reproduced. The "What I learned" section is in my
-own words. Claude also quizzed me in a mock interview.
+The code was drafted mostly by Claude Code (see the
+[top-level README](../README.md)), including the matching of the answers from
+the log files, the cleaning, the statistics and the classifier. My part: the
+rule that turns two answers into a state, the per-person z-score in the
+classifier, the critique of the design (the constant questions, the
+self-defined depth of meditation), and the checks on tiredness and on the time
+in the session, which Claude coded.
 
 ## References
 - Brandmeyer, T., & Delorme, A. (2018). Reduced mind wandering in experienced
