@@ -7,6 +7,7 @@ notebook, figures and a README.
 |---|---|---|---|
 | 01 | [From RC circuit to spike](01-neuron-models/) | How does a neuron turn an input current into spikes? LIF and Hodgkin-Huxley models, f-I curves | done |
 | 02 | [How real neurons fire](02-mouse-neuropixels/) | How differently do real neurons fire from the LIF ideal? Neuropixels recordings from mice, PSTH, Fano factor | done |
+| 03 | [Meditation and mind wandering in the EEG](03-meditation-eeg/) | Can an EEG tell whether a meditator is absorbed in meditation or whether their mind has wandered off? Reanalysis of a published dataset, power spectra, cluster test, classifier | done |
 
 More projects will follow in this repository.
 

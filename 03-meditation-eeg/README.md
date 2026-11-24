@@ -257,7 +257,7 @@ classifier), criticised the design (the constant questions, the self-defined
 depth of meditation), and proposed the two checks on tiredness and on the time
 in the session. Claude coded both checks, and we added them to the notebook so
 that every number here can be reproduced. The "What I learned" section is in my
-own words.
+own words. Claude also quizzed me in a mock interview.
 
 ## References
 - Brandmeyer, T., & Delorme, A. (2018). Reduced mind wandering in experienced
